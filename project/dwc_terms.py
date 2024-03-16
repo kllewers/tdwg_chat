@@ -45,7 +45,7 @@ for table in tables:
         terms_details.append(term_details)
 
 # Write the output to a .jsonl file
-with open('dwc_terms', 'w') as outfile:
+with open('dwc_terms.jsonl', 'w') as outfile:
     for term_detail in terms_details:
         # Convert each dictionary to a JSON string and write it to the file
         json_line = json.dumps(term_detail)
