@@ -43,7 +43,7 @@ output_filename = "dwc_github_issues_data.jsonl"  # Output file name
 # Call the function
 fetch_and_write_github_issues(token, repo_name, output_filename)"""
 
-from bs4 import BeautifulSoup
+"""from bs4 import BeautifulSoup
 import requests
 import json
 
@@ -97,4 +97,4 @@ def scrape_dwc_terms(url)
             json_line = json.dumps(term_detail)
             outfile.write(json_line + '\n')
 
-scrape_dwc_terms('https://dwc.tdwg.org/terms/')
+scrape_dwc_terms('https://dwc.tdwg.org/terms/')"""
