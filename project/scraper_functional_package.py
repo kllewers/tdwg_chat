@@ -1,7 +1,7 @@
 import requests
 import json
 
-def fetch_and_write_github_dwc_issues(token, repo_name, output_filename):
+def fetch_and_write_github_dwc_issues(token, repo_name="tdwg/dwc", output_filename="tdwg_dwc_issuetracker.jsonl"):
     """Fetch GitHub issues for the specified repository and write them to a .jsonl file"""
     
     # Configure the request headers with the provided authentication token
@@ -44,7 +44,7 @@ from bs4 import BeautifulSoup
 
 # URL of the page to scrape
 
-def scrape_dwc_terms(url):
+def scrape_dwc_terms(url="https://dwc.tdwg.org/terms/", output_filename="dwc_terms.jsonl"):
     # Make the request to get the page content
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -85,7 +85,7 @@ def scrape_dwc_terms(url):
             terms_details.append(term_details)
 
     # Write the output to a .jsonl file
-    with open('dwc_terms_21.jsonl', 'w') as outfile:
+    with open(output_filename, 'w') as outfile:
         for term_detail in terms_details:
             # Convert each dictionary to a JSON string and write it to the file
             json_line = json.dumps(term_detail)
