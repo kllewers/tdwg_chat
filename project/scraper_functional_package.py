@@ -1,7 +1,7 @@
 import requests
 import json
 
-def fetch_and_write_github_issues(token, repo_name, output_filename):
+def fetch_and_write_github_dwc_issues(token, repo_name, output_filename):
     """Fetch GitHub issues for the specified repository and write them to a .jsonl file"""
     
     # Configure the request headers with the provided authentication token
@@ -40,15 +40,9 @@ token = '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'  # Replace with your actual G
 repo_name = "tdwg/dwc"  # Repository from which to fetch issues
 output_filename = "dwc_github_issues_data.jsonl"  # Output file name
 
-# Call the function
-fetch_and_write_github_issues(token, repo_name, output_filename)
-
 from bs4 import BeautifulSoup
-import requests
-import json
 
 # URL of the page to scrape
-url = 'https://dwc.tdwg.org/terms/'
 
 def scrape_dwc_terms(url):
     # Make the request to get the page content
@@ -96,5 +90,3 @@ def scrape_dwc_terms(url):
             # Convert each dictionary to a JSON string and write it to the file
             json_line = json.dumps(term_detail)
             outfile.write(json_line + '\n')
-
-scrape_dwc_terms('https://dwc.tdwg.org/terms/')
