@@ -7,7 +7,7 @@ token = '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'
 headers = {'Authorization': f'token {token}'}
 
 # Specify the repository from which to fetch issues
-repo_name = "tdwg/dwc"  # Replace with the actual owner and repository name
+repo_name = "tdwg/hc"  # Replace with the actual owner and repository name
 url = f"https://api.github.com/repos/{repo_name}/issues"
 
 # Make the request to get issues
@@ -31,7 +31,7 @@ for issue in issues:
     print(formatted_data)  # This is where you'd actually write to a file
 
 # Open a file to write
-with open("dwc_github_issues_dataset.jsonl", "w") as file:
+with open("hc_github_issues_dataset.jsonl", "w") as file:
     for issue in issues:
         prompt = issue["title"]
         completion = issue["body"]
