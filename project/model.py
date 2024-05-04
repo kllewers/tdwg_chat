@@ -1,27 +1,16 @@
 import openai
+api_key = 'placeholder'
 
-def query_fine_tuned_model(prompt):
-    try:
-        # Your OpenAI API key
-        openai.api_key = 'sk-proj-fxWoeMvuAD0R9xacMWPzT3BlbkFJ33vuRJn3G2vVnj7SjUF3'
+from openai import OpenAI
+client = OpenAI(api_key=api_key)
 
-        # Name of your fine-tuned model
-        model_name = 'ft:davinci-002:personal::9LCg3jWz'
+"POST https://api.openai.com/v1/completions"
 
-        # Sending a prompt to the model using the new API interface
-        response = openai.ChatCompletion.create(
-            model=model_name,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
-        )
+completion = client.completions.create(
+  model="placehold",
+  prompt= "Can you give me information about dwc:Taxon?",
+  max_tokens= 1000,
+  temperature=0
+)
 
-        # Printing the response from the model
-        print(response['choices'][0]['message']['content'])
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-# Example prompt
-user_prompt = "Can you give me information about dwc:Taxon?"
-query_fine_tuned_model(user_prompt)
+print(completion)
