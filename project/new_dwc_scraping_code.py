@@ -56,7 +56,7 @@ for table in soup.find_all('table'):
     terms.append(formatted_term_data)
 
 # Specify the filename where the output should be saved
-file_name = "dwc_terms_formatted.jsonl"
+file_name = "format_dwc.jsonl"
 
 # Write the output to a .jsonl file
 with open(file_name, 'w') as outfile:
